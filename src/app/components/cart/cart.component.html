@@ -1,0 +1,192 @@
+<ng-container *ngIf="product.length !=0">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Cart Id</th>
+                            <th>Product Id</th>
+                            <th>Product Name</th>
+                            <th>Product Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of product; let i = index">
+                            <td>{{i+1}}</td>
+                            <!-- <td>{{item.orderi}}</td> -->
+                            <!-- <td class="d-flex align-items-center justify-content-around">
+                                <img [src]="item.productimage" height="100" class="order-1">
+                                 alt="{{item.productname}}"
+                            </td> -->
+                            <td>{{item.product.productid}}</td>
+                            <td>{{item.product.productname}}</td>
+                            <td>{{item.product.productdescription}}</td>
+                            <td style="width: 12%;">{{item.product.price}}</td>
+
+                            <td>
+                                <p>{{item.quantity}}</p>
+                                <button type="button" class="btn-group" (click)="dec(item)"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn-group" (click)="inc(item)"><i class="fa fa-plus"></i></button>
+                            </td>
+
+                            <td>
+                                <p>
+                                    {{item.product.price * item.quantity}}
+                                </p>
+                            </td>
+
+
+
+                            <td>
+                                <button (click)="removeItem(item)" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                            <td><button (click)="emptycart()" class="btn btn-danger">Empty cart</button></td>
+                            <td><button routerLink="/products" class="btn btn-primary">Shop More</button></td>
+                            <td><button routerLink="/checkout" (click)="showMessage()" class="btn btn-success">Checkout</button></td>
+                            <td><strong>Grand Total: {{grandTotal | currency:'INR'}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</ng-container>
+
+
+<ng-container *ngIf="product.length==0">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">My Cart</h5>
+        </div>
+        <div class="center">
+            <img class="images" width="300px" height="100px" src="assets/images/emptycart.png">
+
+            <h6>Add items now</h6>
+            <br>
+            <button routerLink="/products" class="btn btn-outline-primary">Shop Now</button>
+        </div>
+    </div>
+</ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="main-content">
+  <div class="section-content section-content-30" style="left:1rem;">
+      <div class="container-fluid" style="max-width: 95%;">
+
+          <!-- display message if cart empty -->
+<!-- <div *ngIf="product.length == 0" class="alert alert-warning col-md-12" style="left:50px; min-height:40px;" role="alert">
+              No items in cart!
+          </div>
+
+          <div *ngIf="product.length > 0">
+              <table class="table table-bordered">
+                  <tr>
+                      <th width="25%">Product</th>
+                      <th width="50%">Details</th>
+                      <th width="25%">Totals</th>
+                  </tr>
+
+                  <tr *ngFor="let product of product">
+                      <td>
+                          <img src="{{ product.productimage }}" class="img-responsive" />
+                      </td>
+                      <td>
+                          <p style="padding-left: 5%">{{ product.productname }}</p>
+                          <p style="padding-left: 5%">{{ product.price| currency: 'INR' }}</p>
+                      </td>
+                      <td style="padding-bottom: 0;">
+                          <div class="items">
+
+
+
+                              <div class="row no-gutters" style="padding-left: 10%">
+                                  <label>Quantity: </label>
+                                  <!-- spacer -->
+<!-- <div class="col-1"></div>
+                                  <!-- quantity increment -->
+<!-- <div class="col">
+
+                                      <button (click)="incrementQuantity(product)" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-plus" style="font-size: 8px; "></i>
+                                    </button> {{ totalQuantity }}
+
+                                      <button (click)="decrementQuantity(product)" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-minus" style="font-size: 8px; "></i>
+                                    </button>
+                                  </div>
+
+
+                              </div>
+
+                          </div> -->
+
+<!--
+                          <p class="mt-2" style="padding-left: 10%">Subtotal: {{ totalQuantity * product.price| currency: 'INR' }}
+                              <br>
+                              <br>
+                              <!-- remove button  -->
+<!-- <button (click)="remove(product)" class="btn btn-primary btn-sm mt-2" style="font-size: .65rem; background-color: darkblue;">remove</button>
+                          </p> -->
+
+
+<!-- </td>
+                  </tr>   -->
+
+<!-- Total Quantity and Total Price -->
+
+<!-- <tr *ngIf="totalQuantity != 0">
+                      <td colspan="2"></td>
+                      <td style="font-weight: bold; padding-left: 2%;">
+
+                          <p>Total Quantity: {{ totalQuantity }}</p>
+                          <p>Shipping: FREE</p>
+                          <p>Total Price: {{ totalPrice | currency: 'INR' }}</p>
+                          <a routerLink="/checkout" class="btn btn-primary" style="font-size: .65rem">Checkout</a>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+
+
+      </div>
+  </div>
+</div> -->

@@ -1,0 +1,47 @@
+.card {
+    height: 60vh;
+    margin: 25px;
+    padding: 25px;
+}
+
+.card-table {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: none;
+    word-wrap: break-word;
+    background-color: rgb(157, 224, 233);
+    background-clip: border-box;
+    border: 1px solid rgba(19, 18, 18, 0.2);
+    border-radius: .25rem;
+}
+
+input[type=text] {
+    margin-left: 50%;
+    margin-right: 30%;
+    width: 100%;
+    background-color: #d0f5e7;
+    color: white;
+    ;
+}
+
+label {
+    font: bold;
+    margin-left: 35%;
+    margin-right: 30%;
+}
+
+.form {
+    margin: center;
+}
+
+.value-button {
+    display: inline-block;
+    margin-left: 50%;
+}
+
+.btn-text-center {
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 90%;
+}

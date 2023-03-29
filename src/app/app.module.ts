@@ -1,35 +1,47 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './products/products.component';
-import { ProductService } from './service/product.service';
-import { CategoryComponent } from './category/category.component';
-import { ReviewComponent } from './review/review.component';
-import { ProductlistComponent } from './products/productlist/productlist.component';
-import { CategoryService } from './service/category.service';
-import { CategoryItemComponent } from './category-item/category-item.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProductsComponent } from './components/products/products.component';
+import { SuccessComponent } from './components/success/success.component';
+import { CheckoutService } from './services/checkout.service';
+import { OrderComponent } from './components/order/order.component';
+import { CategoryComponent } from './components/category/category.component';
+import { ReviewComponent } from './components/review/review.component';
+import { ProductlistComponent } from './components/products/productlist/productlist.component';
+import { CategoryItemComponent } from './components/category-item/category-item.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ReviewService } from './service/review.service';
+import { CategoryService } from './services/category.service';
+import { ProductsService } from './services/products.service';
+import { ReviewService } from './services/review.service';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    CartComponent,
     ProductsComponent,
+    SuccessComponent,
+    CheckoutComponent,
+    CartComponent,
+    HeaderComponent,
+    HomeComponent,
+    OrderComponent,
     CategoryComponent,
     ReviewComponent,
     ProductlistComponent,
     CategoryItemComponent,
-    FooterComponent,
-    HeaderComponent,
-    HomeComponent,
+    FooterComponent
+
+
 
   ],
   imports: [
@@ -37,10 +49,17 @@ import { ReviewService } from './service/review.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule,
+    ReactiveFormsModule,
     NgxPaginationModule
+
   ],
-  providers: [ProductService, CategoryService, ReviewService],
-  bootstrap: [AppComponent]
+  providers: [
+    ProductsService, CategoryService, ReviewService
+  ],
+  bootstrap: [AppComponent],
+  exports:[
+
+
+  ]
 })
 export class AppModule { }

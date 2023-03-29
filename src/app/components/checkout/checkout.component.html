@@ -1,0 +1,50 @@
+<ng-container>
+    <div class="col-md-6">
+        <div class="section-content section-content-p30">
+            <div class="container-fluid ">
+                <!-- Shipping Address form -->
+                <div class="form-area ">
+                    <!-- <form [formGroup]="address " (ngSubmit)="onSubmit() "> -->
+                    <form class="">
+                        <label class="heading"><h3>Shipping Address</h3></label>
+
+                        <br/>
+                        <br/>
+
+                        <div class="form-outline mb-1">
+                            <label class="form-label">Address Line 1</label>
+                            <input type="text" id="addressline1" name="addressline1" class="form-control" placeholder="Enter Address line 1" [(ngModel)]="address.addressline1">
+                        </div>
+
+                        <div class="form-outline mb-1">
+                            <label class="form-label">Address Line 2</label>
+                            <input type="text" id="addressline2" name="addressline2" class="form-control" placeholder="Enter Address Line 2" [(ngModel)]="address.addressline2">
+                        </div>
+
+                        <div class="form-outline mb-1">
+                            <label class="form-label">City</label>
+                            <input type="text" id="city" name="city" class="form-control" placeholder="Enter city" [(ngModel)]="address.city">
+                        </div>
+
+                        <div class="form-outline mb-1">
+                            <label class="form-label">Country</label>
+                            <input type="text" id="country" name="country" class="form-control" placeholder="Enter country" [(ngModel)]="address.country">
+                        </div>
+
+                        <div class="form-outline mb-1">
+                            <label class="form-label">Post Code</label>
+                            <input type="text" id="postcode" name="postcode" class="form-control" placeholder="Enter postcode" [(ngModel)]="address.postcode">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-text-center">
+
+            <button class="btn btn-outline-success btn-lg btn-block " routerLink="/success " (click)="saveOrder()">Order</button>
+            <!-- <td><strong>Grand Total: {{grandTotal | currency:'INR'}}</strong></td> -->
+
+        </div>
+    </div>
+</ng-container>
