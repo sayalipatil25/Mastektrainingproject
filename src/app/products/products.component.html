@@ -1,0 +1,62 @@
+<div>
+  <nav class="navbar">
+    <div class="input-group col-md-9">
+    <input class="form-control" type="text" name="productname" [(ngModel)]="productname"
+    placeholder="Search for products..."(keypress)="getDataBySearch()">
+    </div>
+
+    <div class="col-md-1" style="margin: 0 150px 0 0">
+      <button style="margin-left:0" class="btn btn-primary" (click)="getDataBySearch()"><i class="fas fa-search"></i></button>
+    </div>
+  </nav>
+
+  <div class="d-flex justify-content-end row">
+    <div class="col-md-2">
+      <select class="form-control" [(ngModel)]="selectedPrice" name="price">
+        <option *ngFor="let p of prices" ng-repeat="product in products" [value]="p">
+          <a>{{p}}</a>
+        </option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-primary" (click)="onSelectedPrice(selectedPrice)"><i class="fas fa-filter"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- <div>
+  <option routerLink="/sortProductsByPrice" value="sortByPrice">Price: Low To High</option>
+  <option routerLink="/sortProducts" value="sortByPrice">Price: High To Low</option>
+  <option routerLink="/sortProducts" value="sortByProductName">Sort By Name</option>
+</div> -->
+
+<ng-container *ngIf="products.length >0">
+<div class="row" style="margin: 20px;">
+
+  <div class="col-md-4 shadow p-3 mb-5 bg-body rounded" style="margin-top: 10px;" *ngFor="let product of products | paginate : {itemsPerPage:6, currentPage:p};">
+
+      <div class="">
+        <img class="product-image" style="height: 270px; width: 270px;" src="{{product.productimage}}" alt="">
+        <a [routerLink]="['/products', product.productid]">
+          <h4 style="margin-top: 20px;">{{product.productname}}</h4>
+        </a>
+        <div class="rating">
+          <div class="stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <span class="review-no">41 reviews</span>
+        </div>
+        <p>{{product.productdescription}}</p>
+        <p>Price: {{product.price | currency: 'USD'}}</p>
+        <p style="color: red;">Discount {{product.discountpercent}}%</p>
+        <button class="btn btn-outline-primary">Add to Cart</button>
+        </div>
+  </div>
+  <div class="pagination justify-content-center">
+    <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+  </div>
+

@@ -1,0 +1,7 @@
+.container{
+  max-width: fit-content;
+}
+
+h5, li, a, p{
+  color: white;
+}
